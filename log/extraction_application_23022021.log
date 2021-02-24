@@ -1,0 +1,363 @@
+2021-02-23 15:05:51,853 - INFO - ********** APPLICATION START **********
+2021-02-23 15:05:51,854 - INFO - Loading querys to generate...
+2021-02-23 15:05:51,854 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201901.sql
+2021-02-23 15:05:51,855 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 15:05:52,750 - INFO - Connected sucessfully.
+2021-02-23 15:05:52,750 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201901.sql 
+2021-02-23 15:05:52,750 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/01/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/02/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3
+2021-02-23 15:31:27,177 - INFO - number of lines fetched: 1476
+2021-02-23 15:31:27,202 - INFO - Writing result...
+2021-02-23 15:31:27,211 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201901.csv
+2021-02-23 15:31:27,213 - INFO - Database connection closed.
+2021-02-23 15:31:27,214 - INFO - No queries found to generate.
+2021-02-23 15:31:27,215 - INFO - ********** APPLICATION END **********
+2021-02-23 15:44:53,949 - INFO - ********** APPLICATION START **********
+2021-02-23 15:44:53,949 - INFO - Loading querys to generate...
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201902.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201903.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201904.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201905.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201906.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201907.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201908.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201909.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201910.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201911.sql
+2021-02-23 15:44:53,949 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201912.sql
+2021-02-23 15:44:53,949 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 15:44:54,904 - INFO - Connected sucessfully.
+2021-02-23 15:44:54,904 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201902.sql 
+2021-02-23 15:44:54,904 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201902' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/02/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/02/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/03/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 16:18:32,142 - INFO - number of lines fetched: 2134
+2021-02-23 16:18:32,156 - INFO - Writing result...
+2021-02-23 16:18:32,172 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201902.csv
+2021-02-23 16:18:32,177 - INFO - Database connection closed.
+2021-02-23 16:18:32,178 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 16:18:33,080 - INFO - Connected sucessfully.
+2021-02-23 16:18:33,080 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201903.sql 
+2021-02-23 16:18:33,080 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201903' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/03/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/03/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/04/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 17:17:13,090 - INFO - number of lines fetched: 1448
+2021-02-23 17:17:13,090 - INFO - Writing result...
+2021-02-23 17:17:13,090 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201903.csv
+2021-02-23 17:17:13,100 - INFO - Database connection closed.
+2021-02-23 17:17:13,100 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 17:17:13,974 - INFO - Connected sucessfully.
+2021-02-23 17:17:13,974 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201904.sql 
+2021-02-23 17:17:13,974 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201904' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/04/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/04/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/05/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 19:17:25,333 - INFO - Error while trying to execute query.
+2021-02-23 19:17:25,333 - INFO - ERROR: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+2021-02-23 19:17:25,333 - INFO - Database connection closed.
+2021-02-23 19:17:25,333 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 19:17:26,214 - INFO - Connected sucessfully.
+2021-02-23 19:17:26,214 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201905.sql 
+2021-02-23 19:17:26,224 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201905' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/05/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/05/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/06/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 19:59:42,686 - INFO - number of lines fetched: 1569
+2021-02-23 19:59:42,696 - INFO - Writing result...
+2021-02-23 19:59:42,696 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201905.csv
+2021-02-23 19:59:42,696 - INFO - Database connection closed.
+2021-02-23 19:59:42,696 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 19:59:43,572 - INFO - Connected sucessfully.
+2021-02-23 19:59:43,572 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201906.sql 
+2021-02-23 19:59:43,572 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201906' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/06/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/06/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/07/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 20:24:07,269 - INFO - number of lines fetched: 1604
+2021-02-23 20:24:07,269 - INFO - Writing result...
+2021-02-23 20:24:07,269 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201906.csv
+2021-02-23 20:24:07,269 - INFO - Database connection closed.
+2021-02-23 20:24:07,269 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 20:24:08,140 - INFO - Connected sucessfully.
+2021-02-23 20:24:08,140 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201907.sql 
+2021-02-23 20:24:08,140 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201907' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/07/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/07/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/08/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 20:48:45,066 - INFO - number of lines fetched: 1597
+2021-02-23 20:48:45,082 - INFO - Writing result...
+2021-02-23 20:48:45,082 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201907.csv
+2021-02-23 20:48:45,082 - INFO - Database connection closed.
+2021-02-23 20:48:45,082 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 20:48:45,946 - INFO - Connected sucessfully.
+2021-02-23 20:48:45,946 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201908.sql 
+2021-02-23 20:48:45,946 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201908' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/08/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/08/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/09/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 21:33:26,546 - INFO - number of lines fetched: 1938
+2021-02-23 21:33:26,546 - INFO - Writing result...
+2021-02-23 21:33:26,561 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201908.csv
+2021-02-23 21:33:26,561 - INFO - Database connection closed.
+2021-02-23 21:33:26,561 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 21:33:27,435 - INFO - Connected sucessfully.
+2021-02-23 21:33:27,435 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201909.sql 
+2021-02-23 21:33:27,435 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201909' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/09/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/09/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/10/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 21:56:50,122 - INFO - number of lines fetched: 1074
+2021-02-23 21:56:50,138 - INFO - Writing result...
+2021-02-23 21:56:50,138 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201909.csv
+2021-02-23 21:56:50,138 - INFO - Database connection closed.
+2021-02-23 21:56:50,138 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 21:56:51,015 - INFO - Connected sucessfully.
+2021-02-23 21:56:51,015 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201910.sql 
+2021-02-23 21:56:51,015 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201910' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/10/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/10/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/11/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 22:20:11,931 - INFO - number of lines fetched: 1067
+2021-02-23 22:20:11,931 - INFO - Writing result...
+2021-02-23 22:20:11,931 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201910.csv
+2021-02-23 22:20:11,931 - INFO - Database connection closed.
+2021-02-23 22:20:11,931 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 22:20:12,837 - INFO - Connected sucessfully.
+2021-02-23 22:20:12,837 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201911.sql 
+2021-02-23 22:20:12,837 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201911' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/11/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/11/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/12/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 22:43:25,782 - INFO - number of lines fetched: 1069
+2021-02-23 22:43:25,782 - INFO - Writing result...
+2021-02-23 22:43:25,797 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201911.csv
+2021-02-23 22:43:25,797 - INFO - Database connection closed.
+2021-02-23 22:43:25,797 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 22:43:26,672 - INFO - Connected sucessfully.
+2021-02-23 22:43:26,672 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201912.sql 
+2021-02-23 22:43:26,672 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201912' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/12/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/12/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/01/2020 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 23:16:05,548 - INFO - number of lines fetched: 1074
+2021-02-23 23:16:05,564 - INFO - Writing result...
+2021-02-23 23:16:05,564 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201912.csv
+2021-02-23 23:16:05,564 - INFO - Database connection closed.
+2021-02-23 23:16:05,564 - INFO - No queries found to generate.
+2021-02-23 23:16:05,564 - INFO - ********** APPLICATION END **********
+2021-02-23 23:30:56,971 - INFO - ********** APPLICATION START **********
+2021-02-23 23:30:56,971 - INFO - Loading querys to generate...
+2021-02-23 23:30:56,971 - INFO - file found: Consolidate_A+_LoadProfileExtraction_201904.sql
+2021-02-23 23:30:56,971 - INFO - Trying to connect to 10.152.146.9 in the pulse database...
+2021-02-23 23:30:57,859 - INFO - Connected sucessfully.
+2021-02-23 23:30:57,859 - INFO - executing query: Consolidate_A+_LoadProfileExtraction_201904.sql 
+2021-02-23 23:30:57,860 - INFO - statement: select
+	rst.meter_serial_n_1
+	, rst.client_type
+	, rlp.obis
+    , '201904' as "referencia"
+	, sum(rlp.value::numeric) as "total"
+from
+	report_scheduled_task rst
+inner join
+	report_load_profile rlp
+	on rlp.id_report_scheduled_task = rst.id
+    and rst.creation_date >= to_timestamp('01/04/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+where
+	rst.client_type in ('Big Customers','Massive')
+	and rlp.obis = '1-1:99.1.1*0'
+	and rlp."timestamp" >= to_timestamp('01/04/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+	and rlp."timestamp" < to_timestamp('01/05/2019 00:00:00','DD/MM/YYYY HH24:MI:SS')
+group by
+	1,2,3,4
+2021-02-23 23:55:02,227 - INFO - number of lines fetched: 1470
+2021-02-23 23:55:02,227 - INFO - Writing result...
+2021-02-23 23:55:02,227 - INFO - Writed sucessfully. result saved in: .\\output\\Consolidate_A+_LoadProfileExtraction_201904.csv
+2021-02-23 23:55:02,227 - INFO - Database connection closed.
+2021-02-23 23:55:02,227 - INFO - No queries found to generate.
+2021-02-23 23:55:02,227 - INFO - ********** APPLICATION END **********
